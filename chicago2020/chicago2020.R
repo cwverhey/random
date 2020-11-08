@@ -5,7 +5,7 @@
 # Election Results / 2020 General Election - 11/3/2020
 
 # load CSV
-chicago2020 <- read.csv("/Users/caspar/Desktop/chicago2020.csv")
+chicago2020 <- read.csv("chicago2020.csv")
 
 # fill missing wards
 ward = 0
@@ -48,5 +48,6 @@ for(candidate in candidates) {
 }
 
 # histogram Chicago
+par(mfrow=c(1,1))
 hist(chicago2020$votes,main="Chicago, votes per precinct",xlab="votes",ylab="frequency")
   
