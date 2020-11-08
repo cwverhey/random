@@ -1,0 +1,22 @@
+Since nobody has given an intelligent answer yet, let me try to give it a go.
+
+Benford's Law predicts the distribution of first digits in naturalistic data consisting of random random values above 0. The absent upper bound can be pretty important; if samples are random between 1 and 999 for instance, a uniform distribution is expected instead. However if samples are random between 1 and 1999, we'd expect more numbers starting with 1: 1 + 1x (10 options) + 1xx (100 options) + 1xxx (1000 options) = 1111 numbers that start with 1, versus only 9 + 9x + 9xx = 111 that start with 9. The larger the upper bound, the more the distribution will follow Benford's Law.
+
+Benford's Law can still be used in voting fraud questions even despite the non-infinite amount of voters (a fixed upper bound), when
+
+(1) the upper bound per state/county/ward differs a lot, and/or
+
+(2) there is large variation in the vote proportion per sample (i.e. candidate A might get close to the upper bound in some voting districts, but it's unlikely they do in all sampled districts).
+
+I've only looked at the Chicago example, see the attached plots. For Chicago, first look at the number of votes per precinct. We'd expect them not to vary very much: the precincts are not a natural phenomenon but instead they are man-made to include roughly similar amounts of voters. That breaks condition (1) above. I don't know the population of Chicago well enough to estimate how homogenous they vote, but since this is a city, I would expect that Biden gets a majority of the votes in a majority of the precincts, breaking condition (2) for Biden. Trump might be less popular here, but I wouldn't be surprised to see a majority vote for him in a minority of the precincts as well. For the other candidates, I expect condition (2) to hold up.
+
+The graphs made by OP are correct*, though I have displayed them on a logaritmic scale instead. A distribution following Benford's Law should descend linearly on a log-scale; that's a lot easier to see with the naked eye than something that's decending logaritmically, and it's easier to spot deviations. We can see this holds true for La Riva, Carroll, and Jorgensen. Hawkins is a little off, but of course Biden and Trump are failing Benford's Law the most.
+
+In the histogram of votes per precinct, we can see how limited the precincts are in voter range: we see a very leptokurtic normal distribution, with a mean around 490 votes per precinct, strengthening the expectation that condition 1 doesn't hold.
+
+In the histograms of Hawkins, La Riva, Carroll and Jorgensen we can see they probably obey condition 2: neither of them gets even near 100 votes per precinct. 
+
+For Biden and Trump's histograms, it's clear that they both violate condition 2. An interesting difference is that Biden received quite some votes everywhere, but it is following a normal distribution (and my expectations for a city). Both of them, though especially Biden, clearly run into the upper bounds.
+
+* Data from Chicago is available here: https://chicagoelections.gov/en/election-results-specifics.asp
+* Cleaned up data in CSV format, and my R code is here: https://github.com/cwverhey/random/tree/main/chicago2020
