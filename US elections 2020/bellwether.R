@@ -85,7 +85,7 @@ hist(county_comply$perc_no2008*100, main="How did counties follow National Elect
 hist(county_comply$perc_no2004*100, main="How did counties follow National Election Results?\n\nFrom 2000 to 2020, excl. 2008", xlab="identical outcomes [%]", ylab="# of counties", right = T, breaks=c(seq(0,100,100/6)))
 hist(county_comply$perc_no2000*100, main="How did counties follow National Election Results?\n\nFrom 2004 to 2020", xlab="identical outcomes [%]", ylab="# of counties", right = T, breaks=c(seq(0,100,100/6)))
 
-# How many states voted identical to the national election results?
+# How many counties voted identical to the national election results?
 # 
 #  Between 2000 and 2020: 7
 #  Excluding 2020: 58
@@ -102,12 +102,12 @@ sum(county_comply$perc_no2008==1)
 sum(county_comply$perc_no2004==1)
 sum(county_comply$perc_no2000==1)
 
-# There are only 7 states that 100% followed the national outcome from 2000 to 2020.
+# There are only 7 counties that 100% followed the national outcome from 2000 to 2020.
 #
-# If we don't look at the 2020 elections, there were 58 states that followed the national outcome from 2000 to 2016.
+# If we don't look at the 2020 elections, there were 58 counties that followed the national outcome from 2000 to 2016.
 # Something special?
 #
-# No; if we include the 2020 tallies, but this time don't include the 2016 elections: there were 73 states that
+# No; if we include the 2020 tallies, but this time don't include the 2016 elections: there were 73 counties that
 # correctly predicted 2000-2012 + 2020
 
 # save CSV
