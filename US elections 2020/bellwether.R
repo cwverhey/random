@@ -109,3 +109,6 @@ sum(county_comply$perc_no2000==1)
 #
 # No; if we include the 2020 tallies, but this time don't include the 2016 elections: there were 73 states that
 # correctly predicted 2000-2012 + 2020
+
+# save CSV
+write.csv(county_comply,"county_comply.csv")
